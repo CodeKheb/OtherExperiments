@@ -1,16 +1,17 @@
 package backend;
 
+import com.sun.net.httpserver.*;
+
 import java.io.IOException;
-import java.net.ServerSocket;
+import java.net.InetSocketAddress;
 
 public class myServer {
-    static boolean running = true;
+    static boolean running = false;
     public static void main(String[] args) throws IOException {
-        while (running) {
-            ServerSocket server = new ServerSocket(8080);
-            server.accept();
-        }
-        
-        
+        var server = HttpServer.create();
+        server.bind(new InetSocketAddress("192.168.100.110", 3000), 0);
+        server.start();
+
+        http
     }
 }
